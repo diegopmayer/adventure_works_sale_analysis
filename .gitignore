@@ -16,6 +16,8 @@
 *.vcf
 *.xml
 *.xlsx
+*.zip
+*.gzip
 
 ### Database ###
 *.accdb
