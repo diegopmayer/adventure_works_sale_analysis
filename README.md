@@ -23,3 +23,8 @@
 
 1. Python, Pandas, Seaborn, Matplotilib
 2. Jupyter notebook
+
+
+[Notebook](https://github.com/diegopmayer/adventure_works_sale_analysis/blob/diegopmayer/notebooks/c_01_adventure_works.ipynb)
+
+[Report Presentation](https://github.com/diegopmayer/adventure_works_sale_analysis/blob/diegopmayer/notebooks/c_01_adventure_works.ipynb)
