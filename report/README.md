@@ -10,22 +10,6 @@ Amostra
 
 ## Exploratory Data Analysis
 
-
-```python
-# data extraction and manipulation
-from zipfile import ZipFile
-import pandas as pd
-
-# data visualization
-import seaborn as sns
-import matplotlib.pyplot as plt
-```
-
-
-```python
-interim_data = pd.read_parquet('../datasets/interim/interim_data.gzip')
-```
-
 ### Business Questions
 
 1. What are the best three profit products.
@@ -40,8 +24,7 @@ interim_data = pd.read_parquet('../datasets/interim/interim_data.gzip')
 
 
 ```python
-<div class="mark">
-interim_data.groupby(['produto'])['lucro_produto'].mean().sort_values(ascending=False).reset_index().head(3)</div><i class="fa fa-lightbulb-o "></i>
+
 ```
 
 
@@ -95,7 +78,7 @@ interim_data.groupby(['produto'])['lucro_produto'].mean().sort_values(ascending=
 
 
 ```python
-interim_data.groupby(['produto'])['lucro_produto'].mean().sort_values().reset_index().head(3)
+
 ```
 
 
@@ -149,7 +132,7 @@ interim_data.groupby(['produto'])['lucro_produto'].mean().sort_values().reset_in
 
 
 ```python
-interim_data.groupby(['id_loja'])['valor_venda'].sum().sort_values(ascending=False).reset_index().head(3)
+
 ```
 
 
@@ -205,12 +188,12 @@ You can see that 'valor_venda' has goo relationship with 'preco_unitario', 'curs
 
 
 ```python
-sns.heatmap(data=interim_data.corr(), annot=True);
+
 ```
 
 
     
-![png](output_17_0.png)
+![png](output_15_0.png)
     
 
 
@@ -218,7 +201,7 @@ sns.heatmap(data=interim_data.corr(), annot=True);
 
 
 ```python
-interim_data.groupby(['produto'])['valor_venda'].sum().sort_values(ascending=False).reset_index().head()
+
 ```
 
 
@@ -284,7 +267,7 @@ The Avarega Ticket Price is $ **6620.14** per purchase
 
 
 ```python
-(interim_data['valor_venda'].sum() / interim_data['no._venda'].count()).round(2)
+
 ```
 
 
@@ -298,7 +281,7 @@ The Avarega Ticket Price is $ **6620.14** per purchase
 
 
 ```python
-interim_data.groupby(['id_cliente'])['lucro_venda'].sum().sort_values(ascending=False).reset_index().head()
+
 ```
 
 
@@ -366,7 +349,20 @@ interim_data.groupby(['id_cliente'])['lucro_venda'].sum().sort_values(ascending=
 
 
 ```python
-interim_data.hist(bins=20);
+
+```
+
+
+    
+![png](output_25_0.png)
+    
+
+
+As you can see, the sale allong the year from 2008 to 2009 down
+
+
+```python
+
 ```
 
 
@@ -375,38 +371,20 @@ interim_data.hist(bins=20);
     
 
 
-As you can see, the sale allong the year from 2008 to 2009 down
-
 
 ```python
-sns.lineplot(data=interim_data.groupby(['data_venda']).sum().reset_index(), x='data_venda', y='valor_venda');
+
 ```
 
 
     
-![png](output_29_0.png)
+![png](output_28_0.png)
     
 
 
 
 ```python
-sns.lineplot(
-    data=interim_data.groupby(['ano_venda', 'mes_venda'])['valor_venda'].sum().reset_index(), 
-    x='mes_venda', y='valor_venda', hue='ano_venda');
-```
 
-
-    
-![png](output_30_0.png)
-    
-
-
-
-```python
-sns.barplot(
-    data=interim_data.groupby(['ano_venda', 'mes_venda'])['valor_venda'].sum().reset_index(), 
-    x='mes_venda', y='valor_venda', hue='ano_venda');
-plt.title('Sale for month each year')
 ```
 
 
@@ -418,18 +396,17 @@ plt.title('Sale for month each year')
 
 
     
-![png](output_31_1.png)
+![png](output_29_1.png)
     
 
 
 
 ```python
-interim_data.hist(bins=20)
-plt.savefig('histogram.png')
+
 ```
 
 
     
-![png](output_32_0.png)
+![png](output_30_0.png)
     
 
